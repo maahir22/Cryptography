@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cryptography</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    
+  </head>
+  <body>
+<div class="jumbotron bg-transparent mb-0 radius-0">
+  <div class="container">
+      <div class="row">
+        <div class="col-xl-6">
+         <h1 class="display-2">Cryptograph<span class="vim-caret">y</span></h1>
+          <div class="lead mb-3 text-mono text-success">A website to demonstrate the usage of various Encryption and Decryption Algortihms</div>
+          <div class="text-mono">
+          </div>
+
+          <div class="text-darkgrey text-mono my-2">Made by Maahir Sharma</div>
+
+          <p class="mt-5 text-grey text-spacey">
+            The tools implemented below are made for the sole purpose of testing,encrypting and decrypting. Drawbacks of certain methods will be highlighted soon.
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container py-5">
+  <h1>Basic XOR Encryption</h1>
+
+  <p>A basic XOR Encryption tools works on the principle that if A^B = C then C^B = A , this is the most basic technique of Encryption and Decryption <br>
+
+        <form name="Encryptor" class="card p-2" onsubmit="Encrypt();return false">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="String to Encrypt" name="fname">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Encrypt</button>
+          </div>
+        </div>
+      </form>
+  
+      <form name="Decryptor" class="card p-2" onsubmit="Decrypt();return false">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="String to Decrypt" name="secname">
+          <div class="input-group-append">
+            <div class="input-group">
+          <input type="text" class="form-control" placeholder="Private Key" name="tertname">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Decrypt</button>
+          </div>
+        </div>
+      </form>
+</div>
+
+<script>
+  function privatekey(length) {
+   var result           = '';
+   var characters       = '0123456789';
+   var charactersLength = characters.length;
+      result = characters.charAt(Math.floor(Math.random() * charactersLength));
+   return result;
+}
+  function Encrypt(){
+     var str = document.forms["Encryptor"]["fname"].value;
+    /* Code for deciding the random key*/
+      var key = privatekey(Math.floor(Math.random() * 10)); 
+      var fstr = '';
+    for(var i=0;i<str.length;i++){
+      fstr += String.fromCharCode(key ^ str.charCodeAt(i));
+    }
+    alert("Encrypted string is : " + fstr);
+    alert("Your private key is " + key);
+    alert("Save it for Decryption :)");
+    return false;
+  }
+  function Decrypt(){
+    var str = document.forms["Decryptor"]["secname"].value;
+    var key = document.forms["Decryptor"]["tertname"].value;
+    var result = '';
+    for(var i=0;i<str.length;i++){
+      result += String.fromCharCode(key^str.charCodeAt(i));
+    }
+    alert("Decrypted String is : "+result);
+    return false;
+  }
+</script>
+  </body>
+</html>
