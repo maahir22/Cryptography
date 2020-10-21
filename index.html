@@ -80,7 +80,7 @@
   function Encrypt(){
      var str = document.forms["Encryptor"]["fname"].value;
     /* Code for deciding the random key*/
-      var key = privatekey(Math.floor(Math.random() * 10)); 
+      var key = privatekey(Math.floor(Math.random() * 1000)); 
       var fstr = '';
     for(var i=0;i<str.length;i++){
       fstr += String.fromCharCode(key ^ str.charCodeAt(i));
