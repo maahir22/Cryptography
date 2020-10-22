@@ -9,3 +9,5 @@ Updates :
 1) Added Basic XOR Encryption Technique via Random Private Key Generation.
 2) Added a counter Decryption Technique.
 3) Used BootStrap for formatting and styling the website.
+4) Added Hashing Algorithm
+5) Implemented RSA Algorithm from Scratch with increased Randomisation and PreComputed Prime Numbers/Euclid's Algorithm for GCD/Modular Exponentiation for instant      response.
