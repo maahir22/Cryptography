@@ -16,17 +16,16 @@
     
   </head>
   <body>
-
- 
-
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.min.js"></script>  
 
 <div class="jumbotron bg-transparent mb-0 radius-0">
   <div class="container">
       <div class="row">
         <div class="col-xl-6">
          <h1 class="display-2">Cryptograph<span class="vim-caret">y</span></h1>
-          <div class="lead mb-3 text-mono text-success">A website to demonstrate the usage of various Encryption and Decryption Algortihms</div>
+          <div class="lead mb-3 text-mono text-success">A website to perform various methods of Encryption-Decryption and Hashing Algortihms</div>
           <div class="text-mono">
           </div>
 
@@ -68,6 +67,33 @@
         </div>
       </form>
 </div>
+</div>
+</form>
+</p>
+</div>
+
+<div class="container py-5">
+  <h1>HMAC SHA256 Base64 Hashing</h1>
+
+  <p>A hash, unlike encryption is converted permanently, this technique is mainly used for Signatures.<br>
+
+        <form name="Hashing" class="card p-2" onsubmit="Hash();return false">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="String to Hash" name="fname">
+          <div class="input-group-append">
+          <div class="input-group">
+          <input type="text" class="form-control" placeholder="Secret Key" name="tertname">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Hash</button>
+          </div>
+        </div>
+      </form>
+  
+</div>
+</div>
+</form>
+</p>
+</div>
 
 <script>
   function privatekey(length) {
@@ -99,6 +125,13 @@
     }
     alert("Decrypted String is : "+result);
     return false;
+  }
+  function Hash(){
+    var str = document.forms["Hashing"]["fname"].value;
+    var key = document.forms["Hashing"]["tertname"].value;
+    var hash = CryptoJS.HmacSHA256(str,key);
+    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+    alert("Generated hash is "+hashInBase64);
   }
 </script>
   </body>
