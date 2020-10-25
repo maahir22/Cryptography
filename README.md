@@ -1,4 +1,4 @@
-# Cryptography
+<center># Cryptography</center>
 A fully functional website that allows users to perform various functions of Encryption and Decryption using various algorithms.
 
 Initial Milestones :
