@@ -1,5 +1,8 @@
 <html>
+  <head>
   <center><h1>Cryptography</h1></center>
+  </head>
+ </html>
 A fully functional website that allows users to perform various functions of Encryption and Decryption using various algorithms.
 
 Initial Milestones :
@@ -16,4 +19,3 @@ Updates :
 5) Implemented RSA Algorithm from Scratch with increased Randomisation and PreComputed Prime Numbers/Euclid's Algorithm for GCD/Modular Exponentiation for instant      response.
 6) Added MD5 Hash and AES Encryption and Decryption via CryptoJS.
 7) Added URI Decode Component of JS to decode URI's particularly encountered while intercepting requests.
-</html>
