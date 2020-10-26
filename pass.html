@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+  .formstyle{
+    margin : 200px;
+  }
+  .buttonstyle{
+    margin : 10px;
+    padding : auto;
+    width: : 20px;
+  }
+  </style>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Password Strength Checker</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    
+  </head>
+  <body>
+  
+  <div class="navbar-dark text-white">
+    <div class="container">
+      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a href="index.html" class="pl-md-0 p-3 text-light">Home</a>
+            <a href="pass.html" class="p-3 text-decoration-none text-light">Password Strength Checker</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+
+  
+
+         <center> <h1 class="display-2">Password Strength Checke<span class="vim-caret">r</span></h1> </center>
+         
+
+        <form name="strength" class="card p-2 formstyle" onsubmit="psc();return false">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Password to Evaluate" name="fname">
+          <div class="input-group-append">
+          </div>
+        </div>
+                    <button type="submit" class="btn btn-primary buttonstyle">Check The Strength !</button>
+
+                                <center> <h3 id="adder" class="buttonstyle"></h3></center>
+
+
+      </form> 
+
+</div>
+</div>
+</form>
+</p>
+
+
+<script>
+  function evaluate(score){
+    var result;
+    if (score > 80)
+        document.getElementById("adder").innerHTML = "<p style=\"color:#03fc45;\">" + "Strength is " + "Strong" + "</p>";
+    else if (score > 60)
+        document.getElementById("adder").innerHTML = "<p style=\"color:#64b37c;\">" + "Strength is " + "Good" + "</p>";
+    else if (score >= 30)
+        document.getElementById("adder").innerHTML = "<p style=\"color:#f7ec4d;\">" + "Strength is " + "Average" + "</p>";
+    else
+         document.getElementById("adder").innerHTML = "<p style=\"color:#ff476c;\">" + "Strength is " + "Very Weak" + "</p>";     
+  }
+   function psc() {
+    var pass = document.forms["strength"]["fname"].value;
+        var score = 0;
+    if (!pass)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<pass.length; i++) {
+        letters[pass[i]] = (letters[pass[i]] || 0) + 1;
+        score += 5.0 / letters[pass[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(pass),
+        lower: /[a-z]/.test(pass),
+        upper: /[A-Z]/.test(pass),
+        nonWords: /\W/.test(pass),
+    }
+
+    var variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+
+    evaluate(score);
+}
+</script>
+  </body>
+</html>
