@@ -20,3 +20,4 @@ Updates :
 6) Added MD5 Hash and AES Encryption and Decryption via CryptoJS.
 7) Added URI Decode Component of JS to decode URI's particularly encountered while intercepting requests.
 8) Added a Password Strength Checker that allots a score based on unique characters used and the count of Non-Words + Numbers, and allots a Strength Level based on    this custom cumulative score.
+9) Added PWNAGE Check to Password Strength Checker via HaveIBeenPWNED API.
